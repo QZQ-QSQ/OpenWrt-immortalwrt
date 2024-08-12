@@ -16,5 +16,5 @@
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-src-git OpenClash https://github.com/vernesong/OpenClash.git
-src-git dockerman https://github.com/lisaac/luci-app-dockerman.git
+echo 'src-git OpenClash https://github.com/vernesong/OpenClash' >>feeds.conf.default
+echo 'src-git dockerman https://github.com/lisaac/luci-app-dockerman' >>feeds.conf.default
