@@ -18,17 +18,4 @@
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 echo 'src-git OpenClash https://github.com/vernesong/OpenClash' >>feeds.conf.default
 echo 'src-git dockerman https://github.com/lisaac/luci-app-dockerman' >>feeds.conf.default
-- name: Initialization environment
-  env:
-    DEBIAN_FRONTEND: noninteractive
-  run: |
-    docker rmi `docker images -q`
-    sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /etc/mysql /etc/php
-    sudo -E apt-get -y purge azure-cli* docker* ghc* zulu* hhvm* llvm* firefox* google* dotnet* aspnetcore* powershell* openjdk* adoptopenjdk* mysql* php* mongodb* moby* snap* || true
-    sudo -E apt-get -qq update
-    sudo -E apt-get -qq install libfuse-dev $(curl -fsSL git.io/depends-ubuntu-2204)
-    sudo -E apt-get -qq autoremove --purge
-    sudo -E apt-get -qq clean
-    sudo timedatectl set-timezone "$TZ"
-    sudo mkdir -p /workdir
-    sudo chown $USER:$GROUPS /workdir
+
